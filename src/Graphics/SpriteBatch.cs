@@ -552,7 +552,17 @@ namespace Microsoft.Xna.Framework.Graphics
 			Texture2D texture,
 			Rectangle destinationRectangle,
 			Rectangle? sourceRectangle,
-			Color color
+			Color color)
+		{
+			Draw(texture, destinationRectangle, sourceRectangle, color, 0f);
+		}
+
+		public void Draw(
+			Texture2D texture,
+			Rectangle destinationRectangle,
+			Rectangle? sourceRectangle,
+			Color color,
+			float layerDepth
 		) {
 			CheckBegin("Draw");
 			float sourceX, sourceY, sourceW, sourceH;
@@ -585,7 +595,7 @@ namespace Microsoft.Xna.Framework.Graphics
 				0.0f,
 				0.0f,
 				1.0f,
-				0.0f,
+				layerDepth,
 				0
 			);
 		}
